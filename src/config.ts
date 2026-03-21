@@ -36,7 +36,7 @@ export const siteConfig: SiteConfig = {
 		forceDarkMode: false, // Force dark mode and hide theme switcher
 	},
 	banner: {
-		enable: true,
+		enable: false,
 		src: "/xinghui.avif", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
 
 		position: "center", // Equivalent to object-position, only supports 'top', 'center', 'bottom'. 'center' by default
@@ -57,7 +57,7 @@ export const siteConfig: SiteConfig = {
 	// 	opacity: 1, // Background opacity (0-1)
 	// },
 	background: {
-		enable: false, // Enable background image
+		enable: true, // Enable background image
 		src: "https://pic.chuzoux.top/pic?img=ua", // Background image URL (supports HTTPS)
 		position: "center", // Background position: 'top', 'center', 'bottom'
 		size: "cover", // Background size: 'cover', 'contain', 'auto'
