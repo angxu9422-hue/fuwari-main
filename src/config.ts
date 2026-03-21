@@ -136,3 +136,13 @@ export const noticeConfig = {
 };
 
 // --- 文件结束 ---
+// src/config.ts (在其他配置项之后添加)
+
+// GitHub 编辑页面配置
+export const gitHubEditConfig = {
+  enable: false, // 是否启用 GitHub 编辑链接
+  pattern: "https://github.com/<USERNAME>/<REPO>/edit/main/src/content/posts/:path", // 编辑链接的模式，:path 会被替换为实际的文章路径
+  text: "在 GitHub 上编辑", // 链接显示的文字
+  icon: "octicon:pencil", // 图标
+  position: "end" as const, // 图标位置，'start' 或 'end'
+};
