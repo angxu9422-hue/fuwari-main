@@ -102,4 +102,23 @@ export const expressiveCodeConfig: ExpressiveCodeConfig = {
 	// Please select a dark theme, as this blog theme currently only supports dark background color
 	theme: "github-dark",
 };
-// 1. 在 config.ts 末尾追加一行测试代码
+// --- 请将这些添加到 src/config.ts 末尾 ---
+
+// 1. 图片加载失败时的备用配置 (修复 ImageWrapper.astro 报错)
+export const imageFallbackConfig = {
+  enable: false, // 是否启用备用图片
+  src: "",       // 备用图片的地址，例如 "/images/fallback.png"
+  alt: "Image load failed",
+};
+
+// 2. Umami 统计配置 (修复 Profile.astro 报错，即使你不用也建议加上以防万一)
+export const umamiConfig = {
+  enable: false, // 设为 false 即可禁用相关功能
+  websiteId: "", 
+  host: "",      // 或者 baseUrl: ""
+  shareId: "",
+  timezone: "UTC",
+};
+
+// 3. (可选) 如果还有其他组件报错，通常也是缺这种开关式配置
+// 保持文件结构完整，防止后续构建再次中断
