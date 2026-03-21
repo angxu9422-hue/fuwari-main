@@ -5,11 +5,10 @@
 ## 联系站长
 
 <script src="https://kit.fontawesome.com/d2f72f27ba.js" crossorigin="anonymous"></script>
-- <i class="fa-brands fa-qq"></i> 3451860760 <br>
-- <i class="fa-brands fa-weixin"></i> chuzouX520 <br>
-- <i class="fa-solid fa-envelope"></i> chuzou2163265631@outlook.com <br>
-- <i class="fa-brands fa-bilibili"></i> [@一只离开出走世界](https://space.bilibili.com/491761768) <br>
-- <i class="fa-solid fa-hand-holding-dollar"></i> [@chuzouX](https://afdian.com/a/chuzoux)（爱发电）
+- <i class="fa-brands fa-qq"></i> 3383674642 <br>
+- <i class="fa-brands fa-weixin"></i> K5998727612 <br>
+- <i class="fa-solid fa-envelope"></i> 3383674642@qq.com <br>
+- <i class="fa-brands fa-bilibili"></i> [@1步又一步](https://space.bilibili.com/670929139) <br>
 
 
 
@@ -19,7 +18,6 @@
 
 目前本网站已开源，魔改作者二叉树树
 
-::github{repo="chuzouX/fuwari"}
 
 ## 网站性质
 
@@ -102,8 +100,8 @@
 ## 滥用与版权举报
 
 如果您发现网站内容存在滥用、侵权或其他违法违规行为，请通过以下方式联系我们：
-- **邮箱**：chuzou2163265631@outlook.com
-- **QQ**：3451860760
+- **邮箱**：3383674642@qq.com
+- **QQ**：3383674642
 
 我们将认真对待每一个举报，并在收到举报后及时处理相关问题。
 

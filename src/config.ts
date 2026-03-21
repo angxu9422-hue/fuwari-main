@@ -1,29 +1,69 @@
 import type {
-	ExpressiveCodeConfig,
+    ExpressiveCodeConfig,
+	GitHubEditConfig,
+	ImageFallbackConfig,
 	LicenseConfig,
 	NavBarConfig,
 	ProfileConfig,
 	SiteConfig,
+	NoticeConfig,
 } from "./types/config";
 import { LinkPreset } from "./types/config";
 
+export const noticeConfig: NoticeConfig = {
+    enable: true,
+    level: "important",
+    content: "关注永雏塔菲喵！",
+};
+
+
 export const siteConfig: SiteConfig = {
-	title: "主页",
-	subtitle: "Everything is possible. ",
-	lang: "zh_CN", // Language code, e.g. 'en', 'zh_CN', 'ja', etc.
+	title: "mrx Blog",
+	subtitle: "Everything is possible.",
+	description:
+		"分享网络技术、服务器部署、内网穿透、静态网站搭建、CDN优化、容器化部署等技术教程与日常生活的个人技术博客",
+
+	keywords: [
+		"mrx",
+		"静态网站搭建",
+		"博客",
+		"技术"
+	],
+	lang: "zh_CN", // 'en', 'zh_CN', 'zh_TW', 'ja', 'ko', 'es', 'th'
 	themeColor: {
-		hue: 355, // Default hue for the theme color, from 0 to 360. e.g. red: 0, teal: 200, cyan: 250, pink: 345
+		hue: 361, // Default hue for the theme color, from 0 to 360. e.g. red: 0, teal: 200, cyan: 250, pink: 345
 		fixed: false, // Hide the theme color picker for visitors
+		forceDarkMode: false, // Force dark mode and hide theme switcher
 	},
 	banner: {
-		enable: false,
-		src: "assets/images/demo-banner.png", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
+		enable: true,
+		src: "/xinghui.avif", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
+
 		position: "center", // Equivalent to object-position, only supports 'top', 'center', 'bottom'. 'center' by default
 		credit: {
-			enable: false, // Display the credit text of the banner image
-			text: "", // Credit text to be displayed
-			url: "", // (Optional) URL link to the original artwork or artist's page
+			enable: true, // Display the credit text of the banner image
+			text: "Pixiv @chokei", // Credit text to be displayed
+
+			url: "https://www.pixiv.net/artworks/122782209", // (Optional) URL link to the original artwork or artist's page
 		},
+	},
+	// background: {
+	// 	enable: true, // Enable background image
+	// 	src: "https://eopfapi.acofork.com/pic?img=ua", // Background image URL (supports HTTPS)
+	// 	position: "center", // Background position: 'top', 'center', 'bottom'
+	// 	size: "cover", // Background size: 'cover', 'contain', 'auto'
+	// 	repeat: "no-repeat", // Background repeat: 'no-repeat', 'repeat', 'repeat-x', 'repeat-y'
+	// 	attachment: "fixed", // Background attachment: 'fixed', 'scroll', 'local'
+	// 	opacity: 1, // Background opacity (0-1)
+	// },
+	background: {
+		enable: false, // Enable background image
+		src: "https://pic.chuzoux.top/pic?img=ua", // Background image URL (supports HTTPS)
+		position: "center", // Background position: 'top', 'center', 'bottom'
+		size: "cover", // Background size: 'cover', 'contain', 'auto'
+		repeat: "no-repeat", // Background repeat: 'no-repeat', 'repeat', 'repeat-x', 'repeat-y'
+		attachment: "fixed", // Background attachment: 'fixed', 'scroll', 'local'
+		opacity: 1, // Background opacity (0-1)
 	},
 	toc: {
 		enable: true, // Display the table of contents on the right side of the post
@@ -31,21 +71,16 @@ export const siteConfig: SiteConfig = {
 	},
 	favicon: [
 		// Leave this array empty to use the default favicon
-		// {
-		//   src: '/favicon/icon.png',    // Path of the favicon, relative to the /public directory
-		//   theme: 'light',              // (Optional) Either 'light' or 'dark', set only if you have different favicons for light and dark mode
-		//   sizes: '32x32',              // (Optional) Size of the favicon, set only if you have favicons of different sizes
-		// }
+		{
+			 // Path of the favicon, relative to the /public directory
+			//   theme: 'light',              // (Optional) Either 'light' or 'dark', set only if you have different favicons for light and dark mode
+			//   sizes: '32x32',              // (Optional) Size of the favicon, set only if you have favicons of different sizes
+		},
 	],
-	background: {
-		enable: false,
-		src: "",
-		position: undefined,
-		size: undefined,
-		repeat: undefined,
-		attachment: undefined,
-		opacity: undefined
-	}
+	officialSites: [
+		{ url: "https://www.mrxuxuxu.top", alias: "EdgeOne CN" },
+		{ url: "https://mrxuxuxu.top", alias: "EdgeOne CN" },
+	],
 };
 
 export const navBarConfig: NavBarConfig = {
@@ -54,9 +89,14 @@ export const navBarConfig: NavBarConfig = {
 		LinkPreset.Archive,
 		LinkPreset.About,
 		{
-			name: "GitHub",
-			url: "https://github.com/saicaca/fuwari", // Internal links should not include the base path, as it is automatically added
-			external: true, // Show an external link icon and will open in a new tab
+			name: "友链",
+			url: "/friends/", // Internal links should not include the base path, as it is automatically added
+			external: false, // Show an external link icon and will open in a new tab
+		},
+		{
+			name: "赞助",
+			url: "/sponsors/", // Internal links should not include the base path, as it is automatically added
+			external: false, // Show an external link icon and will open in a new tab
 		},
 	],
 };
@@ -91,58 +131,27 @@ export const profileConfig: ProfileConfig = {
 	],
 };
 
+
 export const licenseConfig: LicenseConfig = {
 	enable: true,
 	name: "CC BY-NC-SA 4.0",
 	url: "https://creativecommons.org/licenses/by-nc-sa/4.0/",
 };
 
+export const imageFallbackConfig: ImageFallbackConfig = {
+	enable: true,
+	originalDomain: "https://eopfapi.acofork.com/pic?img=ua",
+	fallbackDomain: "https://eopfapi.acofork.com/pic?img=ua",
+};
+
+
 export const expressiveCodeConfig: ExpressiveCodeConfig = {
-	// Note: Some styles (such as background color) are being overridden, see the astro.config.mjs file.
-	// Please select a dark theme, as this blog theme currently only supports dark background color
 	theme: "github-dark",
 };
-// --- 请将这些添加到 src/config.ts 末尾 ---
 
-// 1. 图片加载失败时的备用配置 (修复 ImageWrapper.astro 报错)
-export const imageFallbackConfig = {
-  enable: false, // 是否启用备用图片
-  src: "",       // 备用图片的地址，例如 "/images/fallback.png"
-  alt: "Image load failed",
+export const gitHubEditConfig: GitHubEditConfig = {
+	enable: true,
+	baseUrl: "https://github.com/angxu9422-hue/fuwari-main",
 };
 
-// 2. Umami 统计配置 (修复 Profile.astro 报错，即使你不用也建议加上以防万一)
-export const umamiConfig = {
-  enable: false, // 设为 false 即可禁用相关功能
-  websiteId: "", 
-  host: "",      // 或者 baseUrl: ""
-  shareId: "",
-  timezone: "UTC",
-};
-
-// 3. (可选) 如果还有其他组件报错，通常也是缺这种开关式配置
-// 保持文件结构完整，防止后续构建再次中断
-// src/config.ts (在现有配置的最后添加)
-
-// --- 在这里添加新的 noticeConfig ---
-
-/**
- * 公告栏配置
- */
-export const noticeConfig = {
-  enable: false, // 是否启用公告栏，设为 true 开启
-  level: 'info', // 公告级别: 'info', 'warning', 'error' 等
-  content: '这是一条示例公告内容。', // 公告显示的文字
-};
-
-// --- 文件结束 ---
-// src/config.ts (在其他配置项之后添加)
-
-// GitHub 编辑页面配置
-export const gitHubEditConfig = {
-  enable: false, // 是否启用 GitHub 编辑链接
-  pattern: "https://github.com/<USERNAME>/<REPO>/edit/main/src/content/posts/:path", // 编辑链接的模式，:path 会被替换为实际的文章路径
-  text: "在 GitHub 上编辑", // 链接显示的文字
-  icon: "octicon:pencil", // 图标
-  position: "end" as const, // 图标位置，'start' 或 'end'
-};
+// todoConfig removed from here
