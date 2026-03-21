@@ -138,6 +138,13 @@ export const licenseConfig: LicenseConfig = {
 };
 
 
+export const umamiConfig = {
+    enable: true,
+    baseUrl: "https://umami.chuzoux.top",
+    shareId: "dwd7XrCgMkCylMju",
+    timezone: "Asia/Shanghai",
+};
+
 export const imageFallbackConfig: ImageFallbackConfig = {
 	enable: true,
 	originalDomain: "https://eopfapi.acofork.com/pic?img=ua",
