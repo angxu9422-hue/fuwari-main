@@ -122,3 +122,17 @@ export const umamiConfig = {
 
 // 3. (可选) 如果还有其他组件报错，通常也是缺这种开关式配置
 // 保持文件结构完整，防止后续构建再次中断
+// src/config.ts (在现有配置的最后添加)
+
+// --- 在这里添加新的 noticeConfig ---
+
+/**
+ * 公告栏配置
+ */
+export const noticeConfig = {
+  enable: false, // 是否启用公告栏，设为 true 开启
+  level: 'info', // 公告级别: 'info', 'warning', 'error' 等
+  content: '这是一条示例公告内容。', // 公告显示的文字
+};
+
+// --- 文件结束 ---
