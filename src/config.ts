@@ -138,7 +138,6 @@ export const licenseConfig: LicenseConfig = {
 };
 
 
-87654131`	 1``11`
 export const imageFallbackConfig: ImageFallbackConfig = {
 	enable: true,
 	originalDomain: "https://eopfapi.acofork.com/pic?img=ua",
