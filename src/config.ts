@@ -37,6 +37,15 @@ export const siteConfig: SiteConfig = {
 		//   sizes: '32x32',              // (Optional) Size of the favicon, set only if you have favicons of different sizes
 		// }
 	],
+	background: {
+		enable: false,
+		src: "",
+		position: undefined,
+		size: undefined,
+		repeat: undefined,
+		attachment: undefined,
+		opacity: undefined
+	}
 };
 
 export const navBarConfig: NavBarConfig = {
