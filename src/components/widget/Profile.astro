@@ -1,7 +1,6 @@
 ---
-
 import { Icon } from "astro-icon/components";
-import { profileConfig,siteConfig } from "../../config";
+import { profileConfig, siteConfig } from "../../config";
 import { getSortedPosts } from "@utils/content-utils";
 
 const config = profileConfig;
@@ -60,22 +59,16 @@ for (const post of posts) {
         </div>
 
 
-        <!-- 全站访问量统计 -->
+        <!-- 全站访问量统计 (已移除未配置的 Umami 脚本，显示为占位符) -->
         <div class="grid grid-cols-1 mt-3 pt-3 border-t border-neutral-200 dark:border-neutral-700">
             <div class="text-center">
                 <div class="text-xs text-neutral-500 mb-1 flex items-center justify-center gap-1">
                     <Icon name="material-symbols:visibility-outline" class="text-base"></Icon>
                     <span class="text-xs">访问量</span>
                 </div>
-                <div id="site-views" class="font-bold text-lg text-neutral-700 dark:text-neutral-300">-</div>
+                <!-- 由于未配置 Umami，此处暂时显示 "-" 或你可以手动填入数字 -->
+                <div class="font-bold text-lg text-neutral-700 dark:text-neutral-300">-</div>
             </div>
-            <!-- <div class="text-center border-l border-neutral-200 dark:border-neutral-700">
-                <div class="text-xs text-neutral-500 mb-1 flex items-center justify-center gap-1">
-                    <Icon name="material-symbols:person" class="text-base"></Icon>
-                    <span class="text-xs">访客数</span>
-                </div>
-                <div id="site-visitors" class="font-bold text-lg text-neutral-700 dark:text-neutral-300">-</div>
-            </div> -->
         </div>
     </div>
 </div>
@@ -99,27 +92,8 @@ for (const post of posts) {
     }
 </style>
 
-<script define:vars={{ umamiConfig}}>
-    // 获取全站访问量统计
-    async function loadSiteStats() {
-        if (!umamiConfig.enable) return;
-        try {
-            const statsData = await fetchUmamiStats(umamiConfig.baseUrl, umamiConfig.shareId, {
-                timezone: umamiConfig.timezone
-            });
-            
-            const pageviews = statsData.pageviews || 0;
-            const visitors = statsData.visitors || 0;
-            
-            const viewsElement = document.getElementById('site-views');
-            const visitorsElement = document.getElementById('site-visitors');
-            if (viewsElement) viewsElement.textContent = pageviews;
-            if (visitorsElement) visitorsElement.textContent = visitors;
-        } catch (error) {
-            console.error('获取全站统计失败:', error);
-        }
-    }
-
-    // 页面加载完成后获取统计数据
-    document.addEventListener('DOMContentLoaded', loadSiteStats);
-</script>
+<!-- 
+  注意：已移除 <script define:vars={{ umamiConfig }}> 块。
+  因为 src/config.ts 中未导出 umamiConfig，保留此脚本会导致构建失败。
+  如果你需要启用访问量统计，请先在 src/config.ts 中添加 umamiConfig 导出，然后恢复此脚本。
+-->
