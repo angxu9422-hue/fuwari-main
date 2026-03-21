@@ -11,7 +11,7 @@ import type {
 import { LinkPreset } from "./types/config";
 
 export const noticeConfig: NoticeConfig = {
-    enable: true,
+    enable: false,
     level: "important",
     content: "关注永雏塔菲喵！",
 };
