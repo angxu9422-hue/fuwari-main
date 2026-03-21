@@ -72,9 +72,8 @@ export const siteConfig: SiteConfig = {
 	favicon: [
 		// Leave this array empty to use the default favicon
 		{
-			 // Path of the favicon, relative to the /public directory
-			//   theme: 'light',              // (Optional) Either 'light' or 'dark', set only if you have different favicons for light and dark mode
-			//   sizes: '32x32',              // (Optional) Size of the favicon, set only if you have favicons of different sizes
+		src: '/touxiang.ico'
+			
 		},
 	],
 	officialSites: [
@@ -138,13 +137,8 @@ export const licenseConfig: LicenseConfig = {
 	url: "https://creativecommons.org/licenses/by-nc-sa/4.0/",
 };
 
-export const umamiConfig: UmamiConfig = {
-	enable: true,
-	baseUrl: "https://umami.chuzoux.top",
-	shareId: "dwd7XrCgMkCylMju",
-	timezone: "Asia/Shanghai",
-};
 
+87654131`	 1``11`
 export const imageFallbackConfig: ImageFallbackConfig = {
 	enable: true,
 	originalDomain: "https://eopfapi.acofork.com/pic?img=ua",
