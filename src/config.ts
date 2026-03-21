@@ -102,3 +102,4 @@ export const expressiveCodeConfig: ExpressiveCodeConfig = {
 	// Please select a dark theme, as this blog theme currently only supports dark background color
 	theme: "github-dark",
 };
+// 1. 在 config.ts 末尾追加一行测试代码
