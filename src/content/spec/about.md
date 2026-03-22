@@ -6,7 +6,7 @@
 
 <script src="https://kit.fontawesome.com/d2f72f27ba.js" crossorigin="anonymous"></script>
 - <i class="fa-brands fa-qq"></i> 3383674642 <br>
-- <i class="fa-brands fa-weixin"></i> K5998727612 <br>
+- <i class="fa-brands fa-weixin"></i> K15998727612 <br>
 - <i class="fa-solid fa-envelope"></i> 3383674642@qq.com <br>
 - <i class="fa-brands fa-bilibili"></i> [@1步又一步](https://space.bilibili.com/670929139) <br>
 
