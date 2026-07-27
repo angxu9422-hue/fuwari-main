@@ -7,11 +7,8 @@
 let cachedToken = null;
 let tokenExpiry = 0;
 
-addEventListener('fetch', event => {
-  event.respondWith(handleRequest(event.request));
-});
-
-async function handleRequest(request) {
+export async function onRequest(context) {
+  const { request } = context;
   const url = new URL(request.url);
 
   const UMAMI_BASE_URL = 'http://123.207.220.12:3000';
