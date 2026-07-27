@@ -58,7 +58,7 @@ export const siteConfig: SiteConfig = {
 	// },
 	background: {
 		enable: true, // Enable background image
-		src: "http://123.207.220.12/bg.php", // Background image URL (supports HTTPS)
+		src: "https://mrxuxuxu.top/api/bg", // Background image URL (supports HTTPS)
 		position: "center", // Background position: 'top', 'center', 'bottom'
 		size: "cover", // Background size: 'cover', 'contain', 'auto'
 		repeat: "no-repeat", // Background repeat: 'no-repeat', 'repeat', 'repeat-x', 'repeat-y'
