@@ -113,7 +113,7 @@ const bannerOffset =
 
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-        <link rel="preconnect" href="https://umami.mrxuxuxu.top" />
+        <link rel="preconnect" href="http://123.207.220.12:3000" />
 		<script src="/js/umami-share.js" defer></script>
 		
 		
@@ -191,7 +191,7 @@ const bannerOffset =
 			initBg();
 			
 			// Re-run on Swup content replace
-			document.addEventListener('swup:contentReplaced', initBg);
+			document.addEventListener('swup:content:replace', initBg);
 
 			const setupSwupBg = () => {
 				if (window.swup && window.swup.hooks) {
@@ -267,8 +267,57 @@ const bannerOffset =
 		<link rel="alternate" type="application/rss+xml" title={profileConfig.name} href={`${Astro.site}rss.xml`}/>
 		{/* - Umami分析（云-备用） 
 		<script defer src="https://cloud.umami.is/script.js" data-website-id="							" data-swup-ignore-script></script> */}
-		<!-- 超级吊的Umami eop -->
-		<script defer src="https://umami.mrxuxuxu.top/script.js" data-website-id="7ab52206-016e-419c-a7fd-7997dcb4dd39" data-swup-ignore-script></script>
+		<!-- Umami 统计 -->
+		<script defer src="http://123.207.220.12:3000/script.js" data-website-id="b6532085-fe6c-4da9-a814-b3904b5d930a" data-swup-ignore-script></script>
+		<!-- Umami 访问量显示 -->
+		<script defer data-swup-ignore-script>
+			function loadUmamiStats() {
+				var totalEl = document.getElementById('total-visit');
+				if (totalEl) {
+					try {
+						var x = new XMLHttpRequest();
+						x.open('GET', '/api/stats/', true);
+						x.onload = function() {
+							if (x.status === 200) {
+								var data = JSON.parse(x.responseText);
+								totalEl.textContent = String(data.pageviews || 0);
+							}
+						};
+						x.send();
+					} catch(e) {}
+				}
+				var pageViewEls = document.querySelectorAll('[id^="page-views-"]');
+				pageViewEls.forEach(function(el) {
+					var slug = el.id.replace('page-views-', '');
+					if (!slug) return;
+					try {
+						var x = new XMLHttpRequest();
+						x.open('GET', '/api/stats/?path=/posts/' + encodeURIComponent(slug) + '/', true);
+						x.onload = function() {
+							if (x.status === 200) {
+								var data = JSON.parse(x.responseText);
+								el.textContent = String(data.pageviews || 0);
+							}
+						};
+						x.send();
+					} catch(e) {}
+				});
+			}
+			function scheduleUmamiStats() {
+				// 使用双重 requestAnimationFrame 确保 Swup 替换的 DOM 已完全渲染
+				requestAnimationFrame(function() {
+					requestAnimationFrame(function() {
+						loadUmamiStats();
+					});
+				});
+			}
+			if (document.readyState === 'loading') {
+				document.addEventListener('DOMContentLoaded', scheduleUmamiStats);
+			} else {
+				scheduleUmamiStats();
+			}
+			document.addEventListener('swup:content:replace', scheduleUmamiStats);
+		</script>
 		<!-- 百度统计 -->
 <script data-swup-ignore-script>
 var _hmt = _hmt || [];
