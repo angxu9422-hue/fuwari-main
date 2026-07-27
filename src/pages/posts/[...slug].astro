@@ -1,6 +1,5 @@
 ---
 import path from "node:path";
-import { getEntry } from "astro:content";
 import License from "@components/misc/License.astro";
 import Markdown from "@components/misc/Markdown.astro";
 
@@ -14,16 +13,16 @@ import ImageWrapper from "../../components/misc/ImageWrapper.astro";
 import { profileConfig, siteConfig } from "../../config";
 import { formatDateToYYYYMMDD } from "../../utils/date-utils";
 
-// SSR mode: look up entry from slug param instead of getStaticPaths
-const slug = Astro.params.slug;
-if (!slug) {
-	return new Response("Not Found", { status: 404 });
-}
-const entry = await getEntry("posts", slug);
-if (!entry) {
-	return new Response("Not Found", { status: 404 });
+
+export async function getStaticPaths() {
+    const blogEntries = await getSortedPosts();
+    return blogEntries.map((entry) => ({
+        params: { slug: entry.slug },
+        props: { entry },
+    }));
 }
 
+const { entry } = Astro.props;
 const { Content, headings } = await entry.render();
 
 const { remarkPluginFrontmatter } = await entry.render();

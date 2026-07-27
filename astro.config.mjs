@@ -1,11 +1,9 @@
 import sitemap from "@astrojs/sitemap";
 import svelte from "@astrojs/svelte";
 import tailwind from "@astrojs/tailwind";
-import node from "@astrojs/node";
 import swup from "@swup/astro";
 import icon from "astro-icon";
 import { defineConfig } from "astro/config";
-import { passthroughImageService } from "astro/config";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeComponents from "rehype-components";/* Render the custom directive content */
 import rehypeKatex from "rehype-katex";
@@ -32,18 +30,9 @@ import { pluginCustomCopyButton } from "./src/plugins/expressive-code/custom-cop
 
 // https://astro.build/config
 export default defineConfig({
-    adapter: node({ mode: "standalone" }),
-    image: {
-    service: passthroughImageService(),
-    endpoint: {
-      // Fix: @astrojs/node sets endpoint to "astro/assets/endpoint/dev" which doesn't exist
-      entrypoint: "astro/assets/endpoint/node",
-    },
-  },
     site: "https://chuzoux.top",
     base: "/",
     trailingSlash: "always",
-    output: "server",
     redirects: {
       "/donate": "/sponsors",
       "/tit": "/posts/pin/",
